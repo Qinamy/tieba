@@ -28,13 +28,13 @@ if (DEBUG){
 define('INC_PATH',dirname(__FILE__).'/include/');
 require INC_PATH.'config.inc.php';
 // 连接数据库
-$conn = mysql_connect($conf['host'],$conf['user'],$conf['pwd']);
+$conn = mysqli_connect('127.0.0.1','root','123456','tieba');
 if (!$conn){
-	echo '数据库连接失败'.mysql_error();
+	echo '数据库连接失败';
 	die;
 }
-mysql_query('use '.$conf['name'],$conn);
-mysql_query('set names utf8');
+mysqli_query($conn,'use '.$conf['name']);
+mysqli_query($conn,'set names utf8');
 
 
 // 加载数据库函数

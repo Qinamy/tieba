@@ -5,10 +5,10 @@
 
 // 获取多条数据
 function getAll($sql,$conn){
-	$query = mysql_query($sql,$conn);
+	$query = mysqli_query($conn,$sql);
 	$result = array();
 	if ($query){
-		while ($row = mysql_fetch_assoc($query)){
+		while ($row = mysqli_fetch_assoc($query)){
 			$result[] = $row;
 		}
 		return $result;
@@ -19,8 +19,8 @@ function getAll($sql,$conn){
 
 // 获取一条数据
 function getRow($sql,$conn){
-	$query = mysql_query($sql,$conn);
-	$row = mysql_fetch_assoc($query);
+	$query = mysqli_query($conn,$sql);
+	$row = mysqli_fetch_assoc($query);
 	return $row;
 }
 
